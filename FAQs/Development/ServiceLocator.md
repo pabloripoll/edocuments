@@ -1,0 +1,1 @@
+https://en.wikipedia.org/wiki/Service_locator_pattern

@@ -1,4 +1,4 @@
-# eTechnicae - AbcElectronics
+# eDocuments
 
 https://quickref.me/
 
@@ -9,18 +9,19 @@ This is a library for documenting different subjects on eletronics, both hardwar
 `The Basics of ...` of Machine learning would be an introduction to the topic. A book named "Machine Learning Basics" would cover examples of basic systems and how to program/code one.
 
 ## To know
+
 `$` is the end of terminal and after this character, command string can be copied to paste into your terminal.
 ```
 $ command to copy and paste on terminal
 ```
 
 ## Documents for Markdown files
+
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 - https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file
 - https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
 ## Index tree
-Update
 
 Ubuntu based machine or container
 ```
@@ -49,4 +50,16 @@ Copy "tree output" and paste it into the following code:
 │       └── SSD.md
 ├── Makefile
 └── Viewing.md
+```
+
+Tree the project: https://gist.github.com/genadyp/ffc112df6c8b368127e3cbb37465d452
+```bash
+#!/bin/bash
+
+#File: tree-md
+
+tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
+       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
+
+printf "# Project tree\n\n${tree}"
 ```

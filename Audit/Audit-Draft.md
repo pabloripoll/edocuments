@@ -829,5 +829,46 @@ Are you trying to design a branch deployment strategy (like GitFlow), or do you 
 [21] [https://aqua-cloud.io](https://aqua-cloud.io/test-environment-transitions/)
 [22] [https://medium.com](https://medium.com/@anujguptaninja/how-many-environments-should-exist-to-cover-the-sdlc-from-requirements-to-release-61d7d523194a)
 
+------------------------------------------------------------------------------------------------------
 
+[+] up 12/12
+ ✔ Container assets-portal                       Running                                                                                                                                                     0.0s
+ ✔ Container assets-supervision                  Running                                                                                                                                                     0.0s
+ ✔ Container mailcatcher                         Running                                                                                                                                                     0.0s
+ ✔ Container user_request                        Running                                                                                                                                                     0.0s
+ ✔ Container assets-db                           Running                                                                                                                                                     0.0s
+ ✔ Container onconnect-gateway-management-node-1 Started                                                                                                                                                     4.6s
+ ✔ Container openldap_ldap                       Started                                                                                                                                                     3.0s
+ ✔ Container percona-server-service              Started                                                                                                                                                     3.3s
+ ✔ Container redis                               Started                                                                                                                                                     3.9s
+ ✔ Container ogm-rabbit                          Started                                                                                                                                                     4.5s
+ ✔ Container ur_elasticsearch                    Started                                                                                                                                                     3.6s
+ ✔ Container external_user_request_2             Started 
 
+ CONTAINER ID   NAME                                  CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+b3da8291fddd   assets-db                             0.04%     197.6MiB / 31.32GiB   0.62%     5.62MB / 3.94MB   198MB / 59.8MB   23
+e0270b237e90   assets-portal                         0.03%     168.1MiB / 31.32GiB   0.52%     5.84MB / 13MB     120MB / 13.7MB   23
+239973401a9c   assets-supervision                    0.07%     154.6MiB / 31.32GiB   0.48%     75.1kB / 47.9kB   197MB / 21.5MB   58
+6a87d12fd560   user_request                          0.03%     98.64MiB / 31.32GiB   0.31%     2.61MB / 1.36MB   102MB / 10.1MB   22
+fb1d62a9001f   ogm-rabbit                            0.27%     161.6MiB / 31.32GiB   0.50%     3.64kB / 126B     85.2MB / 160kB   56
+2159fe2a3282   redis                                 0.27%     12.4MiB / 31.32GiB    0.04%     577kB / 621kB     121MB / 901kB    21
+aebc3800cbef   onconnect-gateway-management-node-1   0.00%     888KiB / 31.32GiB     0.00%     3.6kB / 126B      1.67MB / 0B      1
+b2e4969842ee   percona-server-service                0.29%     492.8MiB / 31.32GiB   1.54%     4.03MB / 11MB     464MB / 38.4MB   46
+51950a929ade   openldap_ldap                         0.00%     16.82MiB / 31.32GiB   0.05%     61.8kB / 38.8kB   37.7MB / 180kB   5
+c1b95448b46e   mailcatcher                           0.10%     28.04MiB / 31.32GiB   0.09%     140kB / 137kB     28.1MB / 0B      1
+ba2973164006   external_user_request_2               0.03%     55.53MiB / 31.32GiB   0.17%     3.56kB / 126B     88.6MB / 139kB   22
+8925a92ee027   ur_elasticsearch                      13.58%    2.855GiB / 31.32GiB   9.12%     59.2kB / 174kB    1.9GB / 2.83GB   260
+
+CONTAINER ID   IMAGE                                                 COMMAND                  CREATED       STATUS       PORTS                                                                                                                                                     NAMES
+b3da8291fddd   onconnect-gateway-management-assets-db                "docker-php-entrypoi…"   6 days ago    Up 8 hours   443/tcp, 9000/tcp, 0.0.0.0:8091->80/tcp, [::]:8091->80/tcp                                                                                                assets-db
+e0270b237e90   onconnect-gateway-management-assets-portal            "docker-php-entrypoi…"   5 weeks ago   Up 8 hours   443/tcp, 9000/tcp, 0.0.0.0:8090->80/tcp, [::]:8090->80/tcp                                                                                                assets-portal
+239973401a9c   onconnect-gateway-management-assets-supervision       "docker-php-entrypoi…"   5 weeks ago   Up 8 hours   443/tcp, 9000/tcp, 0.0.0.0:8092->80/tcp, [::]:8092->80/tcp                                                                                                assets-supervision
+6a87d12fd560   onconnect-gateway-management-user_request             "docker-php-entrypoi…"   5 weeks ago   Up 8 hours   443/tcp, 9000/tcp, 0.0.0.0:8066->80/tcp, [::]:8066->80/tcp                                                                                                user_request
+fb1d62a9001f   rabbitmq:3-management                                 "docker-entrypoint.s…"   5 weeks ago   Up 8 hours   4369/tcp, 5671/tcp, 15671/tcp, 15691-15692/tcp, 25672/tcp, 0.0.0.0:5671->5672/tcp, [::]:5671->5672/tcp, 0.0.0.0:15671->15672/tcp, [::]:15671->15672/tcp   ogm-rabbit
+2159fe2a3282   redis:latest                                          "docker-entrypoint.s…"   5 weeks ago   Up 8 hours   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp                                                                                                               redis
+aebc3800cbef   onconnect-gateway-management-node                     "docker-entrypoint.s…"   5 weeks ago   Up 8 hours                                                                                                                                                             onconnect-gateway-management-node-1
+b2e4969842ee   mysql:8.0.22                                          "docker-entrypoint.s…"   5 weeks ago   Up 8 hours   33060/tcp, 0.0.0.0:3371->3306/tcp, [::]:3371->3306/tcp                                                                                                    percona-server-service
+51950a929ade   osixia/openldap:1.5.0                                 "/container/tool/run"    5 weeks ago   Up 8 hours   0.0.0.0:389->389/tcp, [::]:389->389/tcp, 636/tcp                                                                                                          openldap_ldap
+c1b95448b46e   schickling/mailcatcher                                "sh -c 'mailcatcher …"   5 weeks ago   Up 8 hours   0.0.0.0:1025->1025/tcp, [::]:1025->1025/tcp, 0.0.0.0:1080->1080/tcp, [::]:1080->1080/tcp                                                                  mailcatcher
+ba2973164006   onconnectrepo.azurecr.io/request-manager:20210512.1   "docker-php-entrypoi…"   5 weeks ago   Up 8 hours   443/tcp, 9000/tcp, 0.0.0.0:8065->80/tcp, [::]:8065->80/tcp                                                                                                external_user_request_2
+8925a92ee027   docker.elastic.co/elasticsearch/elasticsearch:5.4.0   "/bin/bash bin/es-do…"   5 weeks ago   Up 8 hours   0.0.0.0:9200->9200/tcp, [::]:9200->9200/tcp, 9300/tcp                                                                                                     ur_elasticsearch
